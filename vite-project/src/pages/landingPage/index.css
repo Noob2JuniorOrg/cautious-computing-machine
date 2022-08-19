@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
+
+body {
+    font-size: 15px;
+    margin: 0;
+}
+
+.main-header {
+    background-image: url('./assets/desktop/imageHero.jpg');
+}
+
+.creations-section-article:hover img {
+    width: 100%;
+    opacity: 0.5;
+}
+
+.creations-section-article:hover h3 {
+    color: #000000;
+}
+
+.nav-desktop ul li a:hover::before, .footer-nav ul li a:hover::before {
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid white;
+    left: 25%;
+    bottom: 0;
+    height: 1px;
+    width: 50%;
+}
+
+.footer-right ul li a:hover {
+    border-bottom: 2px solid white;
+}
