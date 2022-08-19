@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+
+body {
+    position: relative;
+    margin: 0 100px;
+    padding: 50px 250px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-image: url('../starter-code/assets/bg-main-desktop.png');
+    background-size: contain;
+}
