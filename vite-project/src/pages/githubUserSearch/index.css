@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    margin: 0;
+    background-color: #F6F8FF;
+    font-family: 'Space Mono', monospace;
+    color: #4B6A9B;
+}
+
+.theme-container-white {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.theme-container-whtie:hover, .theme-container-white:hover svg path {
+    color: #000000;
+    fill: #000000;
+}
+
+.theme-container-dark {
+    display: none;
+}
