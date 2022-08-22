@@ -4,12 +4,12 @@
 @tailwind utilities;
 
 
-body {
+/* body {
     margin: 0;
-    background-color: #F6F8FF;
+    background-color: var(--background-color);
     font-family: 'Space Mono', monospace;
     color: #4B6A9B;
-}
+} */
 
 .theme-container-white {
     display: flex;
@@ -29,16 +29,23 @@ body {
 @layer base {
     :root {
         --text-color: #4B6A9B;
-        --fill-color: #F6F8FF;
+        --background-color: #F6F8FF;
+        /* --background-color: #141D2F; */
+        --background-color-dark: #FFFFFF;
+        --background-color-light: #FFFFFF;
     }
 
     .Light {
         --text-color: #4B6A9B;
-        --fill-color: #F6F8FF;
+        --background-color: #F6F8FF;
+        --background-color-dark: #FFFFFF;
+        --background-color-light: #FFFFFF;
     }
 
     .Dark {
         --text-color: #FFFFFF;
-        --fill-color: #141D2F;
+        --background-color: #141D2F;
+        --background-color-dark: #141D2F;
+        --background-color-light: #1E2A47;
     }
 }

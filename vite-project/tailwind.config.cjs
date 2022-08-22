@@ -25,7 +25,9 @@ module.exports = {
       },
       backgroundColor: {
         skin: {
-          fill: "var(--fill-color)"
+          background: "var(--background-color)",
+          backgroundDark: "var(--background-color-dark)",
+          backgroundLight: "var(--background-color-light)"
         }
       }
     },
