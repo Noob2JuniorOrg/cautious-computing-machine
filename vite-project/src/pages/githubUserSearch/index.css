@@ -17,11 +17,28 @@ body {
     cursor: pointer;
 }
 
-.theme-container-whtie:hover, .theme-container-white:hover svg path {
+.theme-container-white:hover, .theme-container-white:hover svg path {
     color: #000000;
     fill: #000000;
 }
 
 .theme-container-dark {
     display: none;
+}
+
+@layer base {
+    :root {
+        --text-color: #4B6A9B;
+        --fill-color: #F6F8FF;
+    }
+
+    .Light {
+        --text-color: #4B6A9B;
+        --fill-color: #F6F8FF;
+    }
+
+    .Dark {
+        --text-color: #FFFFFF;
+        --fill-color: #141D2F;
+    }
 }

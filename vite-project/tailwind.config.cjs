@@ -18,6 +18,16 @@ module.exports = {
         'beige': 'hsl(0, 0%, 41%)',
         'darkRed': 'hsla(0, 100%, 50%, 0.692)'
       },
+      textColor: {
+        skin: {
+          base: "var(--text-color)"
+        }
+      },
+      backgroundColor: {
+        skin: {
+          fill: "var(--fill-color)"
+        }
+      }
     },
     fontFamily: {
       'monoSpace': ['Space Mono', 'monospace'],
@@ -26,7 +36,7 @@ module.exports = {
     },
     boxShadow: {
       shadow: '0px 15px 15px 3px rgb(0 0 0 / 15%)'
-    }
+    },
   },
   plugins: [],
 }
