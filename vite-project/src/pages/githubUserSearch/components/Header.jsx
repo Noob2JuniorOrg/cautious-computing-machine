@@ -4,11 +4,12 @@ import { useState } from 'react';
 
 export const Header = (props) => {
   const [username, setUsername] = useState('');
+  const [noResults, setNotResults] = useState(false);
 
   const setTheme = props.setTheme;
 
   const octokit = new Octokit({
-    auth: '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',
+    auth: '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',
   });
 
   const onSearch = async (e) => {
@@ -16,14 +17,29 @@ export const Header = (props) => {
     const formData = new FormData(e.target);
     const usernameSearch = formData.get('username');
     setUsername(usernameSearch);
+
+    if (usernameSearch.length === 0) {
+      setNotResults(true);
+    }
   };
 
   useEffect(() => {
-    octokit
-      .request(`GET /users/${username}`, {
-        username: username,
-      })
-      .then((user) => props.setUser(user.data));
+    if (username.length !== 0) {
+      octokit
+        .request(`GET /users/${username}`, {
+          username: username,
+        })
+        .then((user) => {
+          props.setUser(user.data);
+          setNotResults(false);
+        })
+        .catch((err) => {
+          if (err.status === 404) {
+            setNotResults(true);
+          }
+          props.setUser(null);
+        });
+    }
   }, [username]);
 
   const ThemeButton = (props) => {
@@ -85,9 +101,11 @@ export const Header = (props) => {
           </label>
         </div>
         <div className="flex items-center gap-2.5">
-          <span className="no-results hidden font-bold text-darkRed">
-            No results
-          </span>
+          {noResults && (
+            <span className="no-results font-bold text-darkRed">
+              No results
+            </span>
+          )}
           <button className="search-btn rounded-lg text-white bg-blue-600 cursor-pointer text-base py-2.5 px-5 outline-none border-none hover:opacity-70">
             Search
           </button>

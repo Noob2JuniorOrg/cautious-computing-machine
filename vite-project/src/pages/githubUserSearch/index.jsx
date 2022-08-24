@@ -9,9 +9,12 @@ import { useEffect, useState } from 'react';
 export const GithubUserSearch = () => {
   const [theme, setTheme] = useState('Light');
   const [user, setUser] = useState(null);
+  const [date, setDate] = useState('');
 
   useEffect(() => {
-    console.log('user', user);
+    if (user) {
+      setDate(user.created_at.substr(0, 10).replaceAll('-', '.'));
+    }
   }, [user]);
 
   return (
@@ -37,7 +40,7 @@ export const GithubUserSearch = () => {
                 <PersonalInfo
                   name={user.name}
                   username={user.login}
-                  joined={user.created_at}
+                  joined={date}
                   bio={user.bio}
                 />
                 <Repos
@@ -51,6 +54,28 @@ export const GithubUserSearch = () => {
                   twitter={user.twitter_username}
                   blog={user.blog}
                   company={user.company}
+                />
+              </div>
+            </>
+          )}
+
+          {!user && (
+            <>
+              <Avatar />
+              <div className={'w-[700px] max-w-[700px] ' + theme}>
+                <PersonalInfo
+                  name="The Octocat"
+                  username="@octocat"
+                  joined="25 Jan 2011"
+                  bio="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
+                />
+                <Repos followers="3333" following="1232" repos="23" />
+                <Links
+                  location="Not available"
+                  github="Not available"
+                  twitter="Not available"
+                  blog="Not available"
+                  company="Not available"
                 />
               </div>
             </>
